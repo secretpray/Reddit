@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+gem 'mechanize'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
 # Use Active Storage variant
@@ -30,6 +31,8 @@ gem 'jquery-rails'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'acts_as_votable'
+gem 'simple_form'
+gem 'record_tag_helper', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
