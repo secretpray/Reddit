@@ -1,5 +1,5 @@
 <div class="page-header mt-5">
-  <h1><a href="<%= @link.url %>"><%= @link.title %></a><br> <h4>Submitted by <%= @link.user.try(:email) %></h4></h1>
+  <h1><a href="<%= @link.url %>"><%= @link.title %></a><br> <h4>Submitted by <%= @link.user.try(:name) || @link.user.email %> </h4></h1>
   <div class="border-top my-2"></div>
 </div>
 <div class="btn-group">
