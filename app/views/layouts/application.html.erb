@@ -10,29 +10,40 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="container-lg">
-        <div class="row justify-content-center mt-3">
-          <div class='col-12'>
+    <header>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <span id="logo" class="navbar-brand mr-auto ml-5">
+            <%= link_to "Raddit", root_path %>
+          </span>
 
-            <%= render 'shared/flash', flash: flash %>
-
+          <span id="nav-link" class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <ul>
-                <li><%= link_to 'Submit link', new_link_path %> </li>
-                <li><%= link_to 'Account', edit_user_registration_path %> </li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %> </li>
+              <ul class="navbar-nav">
+                <li class="mr-2"><%= link_to 'Submit link', new_link_path %></li>
+
+                <li class="mr-2"><%= link_to 'Account', edit_user_registration_path %></li>
+                <li><%= link_to 'Logout', destroy_user_session_path, class: 'button is-light', data: {method: :delete} %></li>
               </ul>
             <% else %>
-              <ul>
-                <li><%= link_to 'Sign up', new_user_registration_path %> </li>
-                <li><%= link_to 'Sign in', new_user_session_path %> </li>
+              <ul class="nav navbar-nav mr-auto">
+                <li class="mr-2"><%= link_to 'Sign up', new_user_registration_path %></li>
+                <li><%= link_to 'Sign in', new_user_session_path %></li>
               </ul>
             <% end %>
+          </span>
+        </nav>
+      </div>
+    </header>
 
-            <%= yield %>
-          </div>
-        </div>
+    <div id="main_content" class="container">
+
+      <%= render 'shared/flash', flash: flash %>
+
+      <div id="content" class="container w-75 p-3">
+
+        <%= yield %>
+      
       </div>
     </div>
   </body>
