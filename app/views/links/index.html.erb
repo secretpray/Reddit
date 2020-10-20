@@ -7,12 +7,16 @@
 
     <div class="btn-group-sm ml-auto">
       <a class="btn btn-outline-dark btn-sm" href="<%= link.url %>">Visit Link</a>
-      <%= link_to like_link_path(link), method: :put, class: "btn btn-outline-dark btn-sm offset-7" do %>
-        <span class="fa fa-arrow-up"></span>Upvote<%= link.get_upvotes.size %>
-      <% end %>
-      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-outline-dark btn-sm" do %>
-        <span class="fa fa-arrow-down"></span>Downvote<%= link.get_downvotes.size %>
+      <% if user_signed_in? %>
+        <%= link_to like_link_path(link), method: :put, class: "btn btn-outline-dark btn-sm offset-7" do %>
+          <span class="fa fa-arrow-up"></span>Upvote<%= link.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_link_path(link), method: :put, class: "btn btn-outline-dark btn-sm" do %>
+          <span class="fa fa-arrow-down"></span>Downvote<%= link.get_downvotes.size %>
+        <% end %>
       <% end %>
     </div>
   </div>
+  <div class="border-top my-2"></div>
 <% end %>
+

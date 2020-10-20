@@ -7,5 +7,7 @@ module ApplicationHelper
     flash = FLASH_NAME[flash_type.to_sym] || flash_type.to_s
   end
 
-
+  def add_line?(count)
+    count.zero? ? nil : "border-top: 1px solid #E9E9E9;"
+  end
 end

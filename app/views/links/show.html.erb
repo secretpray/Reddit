@@ -18,7 +18,8 @@
 
 <h3 class="comments_title"><%= @link.comments.count %> Comments</h3>
 
-<div id="comments"><%= render partial: @link.comments %></div>
+<div id="comments" style="<%= add_line?(@link.comments.count) %>">
+  <%= render partial: @link.comments %></div>
 
 <%= simple_form_for [@link, Comment.new] do |f| %>
   <div class="field"><%= f.text_area :body, class: "form-control" %></div><br>
