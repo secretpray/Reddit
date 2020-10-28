@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_10_19_212351) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.integer "link_id"
     t.text "body"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["link_id"], name: "index_comments_on_link_id"
@@ -46,9 +49,9 @@ ActiveRecord::Schema.define(version: 2020_10_19_212351) do
 
   create_table "votes", force: :cascade do |t|
     t.string "votable_type"
-    t.integer "votable_id"
+    t.bigint "votable_id"
     t.string "voter_type"
-    t.integer "voter_id"
+    t.bigint "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
