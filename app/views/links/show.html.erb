@@ -21,8 +21,10 @@
 <div id="comments" style="<%= add_line?(@link.comments.count) %>">
   <%= render partial: @link.comments %></div>
 
-<%= simple_form_for [@link, Comment.new] do |f| %>
-  <div class="field"><%= f.text_area :body, class: "form-control" %></div><br>
+<% if user_signed_in? %>
+  <%= simple_form_for [@link, Comment.new] do |f| %>
+    <div class="field"><%= f.text_area :body, class: "form-control" %></div><br>
 
-  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+    <%= f.submit "Add Comment", class: "btn btn-primary" %>
+  <% end %>
 <% end %>
